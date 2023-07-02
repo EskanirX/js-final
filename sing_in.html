@@ -44,7 +44,69 @@
         </div>
       </header>
     <section>
-      
+      <div class="cookies">
+        <img src="https://img.freepik.com/free-icon/cookie_318-787031.jpg" alt="">
+        <div class="content1">
+          <h2>Cookies Constent</h2>
+          <p>this website use cookies to ensure you get best experiance on our website</p>
+          <div class="div-buttons">
+            <button class="item1">I understend</button>
+            <a href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <button style="display: none;" class="scroletotop" id="top"><i class="fa-sharp fa-solid fa-arrow-up"></i></button>
+      <div class="sing-in-wraper">
+        <div class="div-img">
+          <img class="div-img1" src="img/Image Placeholder.png" alt="">
+        </div>
+        <div class="sing-in-init">
+          <div class="sing-in-section">
+            <form action="#" id="registration-form" method="post">
+              <div class="em-us">
+                <div class="sing-in-input">
+                  <label for="username-field">Username</label>
+                  <input type="text" name="username" id="username-input" />
+                  <p class="error-text" id="error-username"></p>
+                </div>
+                <div class="sing-in-input">
+                  <label for="password-field">Password</label>
+                  <input type="password" name="password" id="password-input" />
+                  <i id="toggleIcon" class="fa-solid fa-eye"></i>
+                  <p class="error-text" id="error-password"></p>
+                </div>
+                <div class="sing-in-input">
+                  <label for="password-field2">Password</label>
+                  <input type="password" name="password2" id="password-input2" />
+                  <p class="error-text" id="error-password2"></p>
+                </div>
+                <div class="sing-in-input">
+                  <label for="emailField">Your Email</label>
+                  <input type="email" id="email-input1" name="myemail" />
+                  <p class="error-email"></p>
+                </div>
+  
+                <div>
+                  <input type="radio" name="age" id="age1" />
+                  <label for="age1">18-25</label>
+                  <input type="radio" name="age" id="age2" />
+                  <label for="age1">26-35</label>
+                  <input type="radio" name="age" id="age3" />
+                  <label for="age1">36-45</label>
+                  <p class="error-text" id="error-age"></p>
+                </div>
+                <div>
+                  <input type="checkbox" name="agree" id="agree" />
+                  <label for="agree">I Agree Terms And Conditions </label>
+                  <p class="error-text" id="error-agree"></p>
+                </div>
+                <div></div>
+                <input type="submit" class="submit-btn1" value="Submit" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
     <footer>
       <div class="footer-div">
@@ -76,11 +138,45 @@
     <script src="script.js"></script>
     <script src="node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
     <script>
-      var splide = new Splide( '.splide', {
-        perPage: 4,
-        rewind : true,
-      } );
-      
-      splide.mount();</script>
+      let passwordField = document.getElementById("password-input");
+let toggleIcone = document.getElementById("toggleIcon");
+
+toggleIcone.addEventListener("click", function () {
+  if (passwordField.type == "password") {
+    passwordField.setAttribute("type", "text");
+    toggleIcone.classList.remove("fa-eye");
+    toggleIcone.classList.add("fa-eye-slash");
+  } else {
+    passwordField.setAttribute("type", "password");
+    toggleIcone.classList.remove("fa-eye-slash");
+    toggleIcone.classList.add("fa-eye");
+  }
+});
+
+let emailField = document.getElementById("email-input1");
+
+emailField.addEventListener("keyup", function () {
+  let emailValue = document.getElementById("email-input1").value;
+  let pErrorEmail = document.querySelector(".error-email");
+  let emailPatter =
+    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (emailValue.match(emailPatter)) {
+    pErrorEmail.innerText = "your email is valid";
+    pErrorEmail.style.color = "green";
+    emailField.style.outline = "none";
+    emailField.style.border = "solid 2px green";
+  } else {
+    pErrorEmail.innerText = "your email is invalid";
+    pErrorEmail.style.color = "red";
+    emailField.style.outline = "none";
+    emailField.style.border = "solid 2px red";
+  }
+  if (emailValue == "") {
+    pErrorEmail.innerHTML = " ";
+    emailField.style.border = "solid 2px black";
+  }
+});
+    </script>
   </body>
 </html>

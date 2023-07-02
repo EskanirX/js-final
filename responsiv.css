@@ -106,6 +106,15 @@
     .digest{
         flex-direction: column;
     }
+    .sing-in-wraper{
+        flex-direction: column;
+    }
+    .div-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+    }
 }
 
 @media (max-width: 680px){
@@ -201,4 +210,7 @@
     .ul-div{
         padding-inline: 0;
     }
-}
+    .artist-p{
+        display: none;
+    }
+}       
