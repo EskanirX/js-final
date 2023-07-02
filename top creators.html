@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsiv.css">
+    <link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+        <nav>
+          <ul>
+          <div class="ul-div">
+            <img src="img/Logo.svg" alt=""><a href="index.html"></a></img>
+            <div class="nav-div">
+              <li><a class="li-item" href="index.html">Home</a></li>
+              <li><a class="li-item" href="ranking.html">Ranking</a></li>
+              <li><a class="li-item" href="top creators.html">top creators</a></li>
+              <a href="sing_in.html">
+                <button class="sing-in"><i class="fa-regular fa-user logo"></i> Sing in</button>
+              </a>
+            </div>
+            <div class="toggle">
+              <i class="fa-solid fa-bars burger" id="burger"></i>
+            </div>
+          </div>
+          </ul>
+        </nav>
+        <div class="nav-down" id="toggle-nav">
+          <nav>
+            <ul>
+              <li><a class="li-item" href="index.html">Home</a></li>
+              <li><a class="li-item" href="ranking.html">Ranking</a></li>
+              <li><a class="li-item" href="top creators.html">top creators</a></li>
+              <a href="sing_in.html">
+                <button class="sing-in"><i class="fa-regular fa-user logo"></i> Sing in</button>
+              </a>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <section>
+      <button class="scroletotop" id="top"><i class="fa-sharp fa-solid fa-arrow-up"></i></button>
+    </section>
+    <footer>
+      <div class="footer-div">
+        <img src="img/Logo.svg" alt="">
+        <h2 class="h2-footer">Explore</h2>
+      </div>
+      <div class="footer-cont">
+        <div class="footer-div2">
+          <p class="footer-p">NFT marketplace UI created with Anima for Figma.</p>
+          <p class="footer-p">Join our community</p>
+        </div>
+        <div class="footer-div3">
+          <nav>
+          <ul>
+            <li class="li-1"><a class="a-footer" href="index.html">Home</a></li>
+            <li class="li-1"><a class="a-footer" href="ranking.html">Rankings</a></li>
+            <li class="li-1"><a class="a-footer" href="top creators.html">Top creators</a></li>
+          </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="icons">
+        <img src="img/icons35.svg" alt="">
+      </div>
+      <div class="footer-div4">
+        <p class="footer-p">Ⓒ NFT Market. Use this template freely.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+    <script>
+      var splide = new Splide( '.splide', {
+        perPage: 4,
+        rewind : true,
+      } );
+      
+      splide.mount();</script>
+  </body>
+</html>
