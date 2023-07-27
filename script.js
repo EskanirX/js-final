@@ -1,3 +1,4 @@
+"use strict";
 let toggle = document.getElementById("toggle-nav");
 let burger = document.getElementById("burger");
 
@@ -57,7 +58,10 @@ function create(x) {
   divContainer.appendChild(diVWraper);
 }
 
+
 let cookieBox = document.querySelector(".cookies");
+
+let accaptBtn
 accaptBtn = cookieBox.querySelector(".div-buttons button");
 
 accaptBtn.onclick = () => {

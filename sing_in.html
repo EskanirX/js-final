@@ -101,7 +101,7 @@
                   <p class="error-text" id="error-agree"></p>
                 </div>
                 <div></div>
-                <input type="submit" class="submit-btn1" value="Submit" />
+                <input type="submit" class="submit-btn1" id="registration-form" value="Submit"  />
               </div>
             </form>
           </div>
@@ -138,22 +138,59 @@
     <script src="script.js"></script>
     <script src="node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
     <script>
-      let passwordField = document.getElementById("password-input");
-let toggleIcone = document.getElementById("toggleIcon");
+      let formElement = document.getElementById('registration-form')
+      
+      formElement.addEventListener("submit", function(event){
+        event.preventDefault();
+        let errors = {}
 
-toggleIcone.addEventListener("click", function () {
-  if (passwordField.type == "password") {
-    passwordField.setAttribute("type", "text");
-    toggleIcone.classList.remove("fa-eye");
-    toggleIcone.classList.add("fa-eye-slash");
-  } else {
-    passwordField.setAttribute("type", "password");
-    toggleIcone.classList.remove("fa-eye-slash");
-    toggleIcone.classList.add("fa-eye");
-  }
-});
+        // username
 
-let emailField = document.getElementById("email-input1");
+        let usernameValue = document.getElementById("username-input").value;
+
+        if (usernameValue.length < 8){
+          errors.username = "username is too short";
+        }
+        if (usernameValue == ''){
+          errors.username = "username field is empty"
+        }
+
+        let pasw1 =  document.getElementById('password-input').value;
+        let pasw2 = document.getElementById('password-input2').value;
+
+        if (pasw1 == ""){
+          errors.password = "password field can not be empty"
+        }
+        if (pasw1 != pasw2){
+          errors.password2 = "password does not match"
+        }
+        let agree = document.getElementById("agree").checked;
+        
+        if (!agree){
+          errors.agree = "you must agree our conditions"
+        }
+
+        let userAge = false
+        document.querySelectorAll('[name = "age"]').forEach(t => {
+          if (t.checked){
+            userAge = true
+          }
+        })
+        if (!userAge){
+          errors.age = "please select your age"
+        }
+
+        for(let key in errors){
+          console.log(key);
+          let errorP = document.getElementById("error-" + key)
+          if(errorP){
+         errorP.textContent = errors[key]
+        }
+        }
+
+        console.log(errors)
+      })
+      let emailField = document.getElementById("email-input1");
 
 emailField.addEventListener("keyup", function () {
   let emailValue = document.getElementById("email-input1").value;
@@ -177,6 +214,7 @@ emailField.addEventListener("keyup", function () {
     emailField.style.border = "solid 2px black";
   }
 });
+
     </script>
   </body>
 </html>
